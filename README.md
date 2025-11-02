@@ -56,6 +56,7 @@ cd trs_technical_exam
 ##### Update docker-compose.yml
 ##### (Make sure the volume path points to your local backend folder, e.g.)
 ##### ./backend:/var/www/html
+##### mysql_db config
 
 ## Start Docker containers
 docker-compose up --build -d
