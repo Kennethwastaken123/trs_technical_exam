@@ -47,53 +47,30 @@ Make sure you have these installed:
 
 ## 🧩 Installation
 
-🚀 Installation
-1️⃣ Clone the Repository
+## Clone the repository
 git clone https://github.com/Kennethwastaken123/trs_technical_exam.git
 
-2️⃣ Go to the Project Folder
+## Go to the project folder
 cd trs_technical_exam
 
-3️⃣ Update docker-compose.yml
+##### Update docker-compose.yml
+##### (Make sure the volume path points to your local backend folder, e.g.)
+##### ./backend:/var/www/html
 
-Make sure the volume path points to your local backend folder:
-
-./backend:/var/www/html
-
-4️⃣ Start Docker Containers
+## Start Docker containers
 docker-compose up --build -d
 
-5️⃣ Verify Containers
+#### In Docker Desktop, ensure both `laravel-app` and `mysql` containers are running
 
-In Docker Desktop, ensure both containers are running:
-
-laravel-app
-
-mysql
-
-6️⃣ Access the Laravel Container
+## Open a terminal in the `laravel-app` container
 docker exec -it laravel-app bash
 
-7️⃣ Install Dependencies
-composer install
+## Install dependencies and migrate the database
+- composer install
+- php artisan migrate
 
-8️⃣ Copy Environment File and Generate App Key
-cp .env.example .env
-php artisan key:generate
-
-9️⃣ Run Database Migrations
-php artisan migrate
-
-🔟 (Optional) Seed the Database
-php artisan db:seed
-
-1️⃣1️⃣ Exit the Container
-exit
-
-1️⃣2️⃣ Set Up the Frontend
-cd frontend
-npm install
-npm run dev
-
-
+## In another terminal, set up the frontend
+- cd frontend
+- npm install
+- npm run dev
 
