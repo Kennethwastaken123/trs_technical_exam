@@ -65,12 +65,25 @@ docker-compose up --build -d
 # Open a terminal in the `laravel-app` container
 docker exec -it laravel-app bash
 
-# Install dependencies and migrate the database
+# Install dependencies
 composer install
+
+# Copy example environment file and generate app key
+cp .env.example .env
+php artisan key:generate
+
+# Run database migrations
 php artisan migrate
+
+# (Optional) Seed the database
+php artisan db:seed
+
+# Exit the container
+exit
 
 # In another terminal, set up the frontend
 cd frontend
 npm install
 npm run dev
+
 
