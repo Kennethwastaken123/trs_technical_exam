@@ -47,7 +47,30 @@ Make sure you have these installed:
 
 ## 🧩 Installation
 
-### 1. Clone the Repository
-```bash
+# Clone the repository
 git clone https://github.com/Kennethwastaken123/trs_technical_exam.git
-cd laravel-vue-jwt
+
+# Go to the project folder
+cd trs_technical_exam
+
+# Update docker-compose.yml
+# (Make sure the volume path points to your local backend folder, e.g.)
+# ./backend:/var/www/html
+
+# Start Docker containers
+docker-compose up --build -d
+
+# In Docker Desktop, ensure both `laravel-app` and `mysql` containers are running
+
+# Open a terminal in the `laravel-app` container
+docker exec -it laravel-app bash
+
+# Install dependencies and migrate the database
+composer install
+php artisan migrate
+
+# In another terminal, set up the frontend
+cd frontend
+npm install
+npm run dev
+
